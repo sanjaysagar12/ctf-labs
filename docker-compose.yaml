@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  sqlinjection:
+  sql-injection:
     image: sql-injection
     ports:
-      - "8080:80"
+      - "2001:80"
 
     depends_on:
       - db
@@ -13,7 +13,11 @@ services:
       DB_USER: root
       DB_PASSWORD: rootpassword
       DB_NAME: test_db
-
+      
+  code-injection:
+    image: code-injection
+    ports:
+      - "2002:80"
   db:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
