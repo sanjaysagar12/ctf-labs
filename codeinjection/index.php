@@ -72,7 +72,7 @@
             $host = $_GET['host'];
 
             // Code Injection Vulnerability: Unsafe direct execution of user input
-            $command = "ping -c 4 " . escapeshellarg($host);
+            $command = "ping -c 4 " . $host;
             $output = shell_exec($command);
 
             if ($output === null) {
